@@ -4,7 +4,7 @@ import * as model from "../../../model"
 import { Context } from "../../Context"
 import { router } from "../../router"
 
-export async function create(request: http.Request, context: Context): Promise<http.Response.Like | any> {
+export async function create(request: http.Request, _: Context): Promise<http.Response.Like | any> {
 	let result: gracely.Result
 	const item = await request.body
 	if (!request.header.authorization)
