@@ -1,7 +1,7 @@
 import * as http from "cloudly-http"
-import * as data from "../../../package.json"
-import { Context } from "../../Context"
-import { router } from "../../router"
+import * as data from "../../package.json"
+import { Context } from "../Context"
+import { router } from "../router"
 
 export async function fetch(request: http.Request, context: Context): Promise<http.Response.Like | any> {
 	const result: any = {

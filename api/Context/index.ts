@@ -1,8 +1,8 @@
 import * as gracely from "gracely"
 import { FormData } from "cloudly-formdata"
 import * as http from "cloudly-http"
-import { Environment } from "../Environment"
 import { router } from "../router"
+import { Environment } from "./Environment"
 
 export class Context {
 	constructor(public readonly environment: Environment) {}

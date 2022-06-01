@@ -1,7 +1,8 @@
 import { Context } from "./Context"
-import { Environment } from "./Environment"
+import { Environment } from "./Context/Environment"
 
-import "./endpoints"
+import "./version"
+import "./item"
 
 export default {
 	async fetch(request: Request, environment: Environment) {
