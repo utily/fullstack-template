@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es2019",
+    "lib": ["es2019", "webworker"],
+    "alwaysStrict": true,
+		"experimentalDecorators": false,
+    "strict": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "types": ["@cloudflare/workers-types", "node"],
+		"resolveJsonModule": true,
+		"noImplicitAny": true,
+		"removeComments": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitThis": true,
+		"strictNullChecks": true,
+		"allowJs": true,
+  },
+	"include": [
+    "./**/*.ts"  ],
+  "exclude": ["**/*.spec.ts", "**/*.test.ts", "**/*.d.ts"]
+}

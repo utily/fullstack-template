@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"module": "ESNext",
+		"strict": true,
+		"alwaysStrict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"noImplicitThis": true,
+		"allowUnreachableCode": false,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"sourceMap": true,
+		"removeComments": true,
+		"forceConsistentCasingInFileNames": true,
+		"preserveConstEnums": true,
+	},
+	"include": [""],
+	"exclude": [""]
+}
