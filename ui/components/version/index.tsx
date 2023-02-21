@@ -1,4 +1,5 @@
 import { Component, h, Host, State } from "@stencil/core"
+import { client } from "../../client"
 
 @Component({
 	tag: "template-version",
@@ -7,20 +8,12 @@ import { Component, h, Host, State } from "@stencil/core"
 })
 export class ApiVersion {
 	@State() version?: string
-	@State() error?: string
 
 	async connectedCallback() {
-		try {
-			const response = await window.fetch(`${process.env.apiUrl}/api/version`)
-			response.ok
-				? (this.version = ((await response.json()) as { version: string }).version)
-				: (this.error = `${response.status} ${response.statusText}`)
-			console.log(this.version)
-		} catch (error: any) {
-			this.error = error.message ?? error
-		}
+		const response = await client.version.fetch()
+		this.version = response.version
 	}
 	render() {
-		return <Host>{this.version ? `api version: ${this.version}` : this.error}</Host>
+		return <Host>{this.version ? `api version: ${this.version}` : "loading..."}</Host>
 	}
 }

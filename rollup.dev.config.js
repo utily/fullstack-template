@@ -12,9 +12,9 @@ export default [{
 		output: {
 			exports: "named",
 			format: "es",
-			file: "dist/api/index.mjs",
+			file: "dist/api/_worker.mjs",
 			sourcemap: true,
-			sourcemapPathTransform: (relativeSourcePath, _) => path.resolve(__dirname, relativeSourcePath.replace(/^(..\/)+/, ""))
+			sourcemapPathTransform: (relativeSourcePath, _) => path.resolve(__dirname, path.resolve(__dirname, relativeSourcePath.replace(/^(\.\.\/)+/, "")),)
 		},
 		plugins: [commonjs(), nodeResolve({ browser: true }), typescript({ tsconfig: "./api/tsconfig.json" }), json()],
 		watch: {
