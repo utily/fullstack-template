@@ -16,5 +16,8 @@ export const config: Config = {
 			dir: "dist/ui/",
 		},
 	],
+	devServer: {
+		openBrowser: false,
+	},
 	plugins: [],
 }
