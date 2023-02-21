@@ -1,6 +1,6 @@
 compatibility_date = "2022-04-06"
 type = "javascript"
-name = "weekmeeter"
+name = "worker-stencil-template"
 # account_id = "abcdefg01234567890"
 # zone_id = "abcdefg01234567890"
 workers_dev = true
