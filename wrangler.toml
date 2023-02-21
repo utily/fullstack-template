@@ -1,38 +1,30 @@
-compatibility_date = "2022-04-06"
-type = "javascript"
-name = "worker-stencil-template"
-# account_id = "abcdefg01234567890"
-# zone_id = "abcdefg01234567890"
+compatibility_date = "2022-11-25"
+name = "worker-template"
 workers_dev = true
-routes = [
-	
-]
+routes = []
 vars = { }
+main = "./dist/_worker.js"
+port = 8787
 
 [build]
 command = "npm install && npm run build:api"
-[build.upload]
-format = "modules"
-dir = "dist/api"
-main = "index.mjs"
+upload.format = "modules"
 
-[durable_objects]
-bindings = [
-]
+[env.production]
+workers_dev = false
+vars = {  }
+durable_objects.bindings = []
+kv_namespaces = []
+r2_buckets = []
 
-[env.wrangler]
+[env.local]
 workers_dev = true
-vars = { adminSecret = "secret" }
-durable_objects.bindings = [
-]
-
-[env.miniflare]
-workers_dev = true
-# account_id = "4bcc6b2f51b1ed579925a357e75eb6b8"
-vars = { }
-durable_objects.bindings = [
-]
+vars = { adminSecret = "adminSecret" }
+durable_objects.bindings = []
+kv_namespaces = []
+r2_buckets = []
 
 [miniflare]
 durable_objects_persist = "./.miniflare/durable-objects/"
 kv_persist = "./.miniflare/kv/"
+port = 8787
