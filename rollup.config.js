@@ -13,7 +13,7 @@ export default [{
 		output: {
 			exports: "named",
 			format: "es",
-			file: "dist/api/index.mjs",
+			file: "dist/_worker.js",
 			sourcemap: true,
 			sourcemapPathTransform: (relativeSourcePath, _) => path.resolve(__dirname, relativeSourcePath.replace(/^(..\/)+/, "")),
 		},

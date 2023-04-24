@@ -18,4 +18,4 @@ export async function change(request: http.Request, _: Context): Promise<http.Re
 		result = { ...item, id }
 	return result
 }
-router.add("PATCH", "item/:id", change)
+router.add("PATCH", "/api/item/:id", change)

@@ -25,6 +25,6 @@
     "jsx": "react",
     "jsxFactory": "h"
   },
-  "include": ["./**/*.ts", "./**/*.tsx"],
+  "include": ["ui", "./**/*.ts", "./**/*.tsx"],
   "exclude": ["**/*.spec.ts", "**/*.test.ts", "**/*.d.ts"]
 }

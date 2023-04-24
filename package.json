@@ -13,17 +13,18 @@
   "module": "./dist/index.mjs",
   "jest": {
     "transform": {
-      "^.+\\.(j|t)sx?$": "ts-jest"
+      "^.+\\.(j|t)sx?$": [
+        "ts-jest",
+        {
+          "tsconfig": "./tsconfig.test.json",
+					"useESM": true
+        }
+      ]
     },
+		"extensionsToTreatAsEsm": [".ts"],
     "transformIgnorePatterns": [
       "<rootDir>/node_modules/(?!(cryptly|authly|isoly|gracely|cloudly-http|cloudly-router|cloudly-formdata)/.*)"
     ],
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.test.json",
-        "setTimeout": 2000
-      }
-    },
     "testEnvironment": "node",
     "testRegex": "((\\.|/)(test|spec))(\\.|\\/.+)(jsx?|tsx?)$",
     "testPathIgnorePatterns": [
@@ -34,9 +35,7 @@
       "**/*.{ts,tsx,js,jsx}",
       "!**/node_modules/**",
       "!**/dist/**"
-    ],
-    "preset": "ts-jest",
-    "testMatch": null
+    ]
   },
   "scripts": {
     "lint": "eslint '**/*.{ts,tsx}'",
@@ -52,7 +51,7 @@
     "build:local:api": "rollup --config rollup.dev.config.js",
     "build:ui": "export NODE_ENV='local' && stencil build",
     "start": "(npm run start:api) & (npm run start:ui) && kill $!",
-    "start:api": "(rollup --config rollup.dev.config.js --watch) & (node --experimental-vm-modules --inspect ./node_modules/miniflare/dist/src/cli.js dist/api/_worker.mjs --wrangler-env local --watch --live-reload -B 'while [ ! -f dist/api/_worker.mjs ]; do sleep 0.1; done' && kill $!)",
+    "start:api": "(rollup --config rollup.dev.config.js --watch) & (node --experimental-vm-modules --inspect ./node_modules/miniflare/dist/src/cli.js dist/_worker.mjs --wrangler-env local --watch --live-reload -B 'while [ ! -f dist/_worker.mjs ]; do sleep 0.1; done' && kill $!)",
     "start:ui": "export NODE_ENV='local' && stencil build --dev --serve --watch",
     "kill": "(ps -aux | grep rollup | grep watch | awk '{print $2}' | xargs kill $1) & (lsof -i tcp:8787 | grep 8787 | awk '{print $2}' | xargs kill $1) & (lsof -i tcp:3333 | grep 3333 | awk '{print $2}' | xargs kill $1)"
   },
