@@ -15,4 +15,4 @@ export async function fetch(request: http.Request, _: Context): Promise<http.Res
 		result = { id, number: id.charCodeAt(0) - "a".charCodeAt(65) }
 	return result
 }
-router.add("GET", "item/:id", fetch)
+router.add("GET", "/api/item/:id", fetch)

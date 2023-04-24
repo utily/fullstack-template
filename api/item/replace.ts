@@ -18,4 +18,4 @@ export async function replace(request: http.Request, _: Context): Promise<http.R
 		result = item
 	return result
 }
-router.add("PUT", "item/:id", replace)
+router.add("PUT", "/api/item/:id", replace)

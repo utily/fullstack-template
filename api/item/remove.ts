@@ -15,4 +15,4 @@ export async function remove(request: http.Request, _: Context): Promise<http.Re
 		result = { id, number: id.charCodeAt(0) - "a".charCodeAt(65) }
 	return result
 }
-router.add("DELETE", "item/:id", remove)
+router.add("DELETE", "/api/item/:id", remove)

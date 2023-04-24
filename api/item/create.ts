@@ -15,4 +15,4 @@ export async function create(request: http.Request, _: Context): Promise<http.Re
 		result = gracely.success.created(item)
 	return result
 }
-router.add("POST", "item", create)
+router.add("POST", "/api/item", create)
