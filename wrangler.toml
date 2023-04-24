@@ -19,7 +19,7 @@ r2_buckets = []
 
 [env.local]
 workers_dev = true
-vars = { adminSecret = "adminSecret" }
+vars = { adminSecret = "adminSecret", ui = "localhost:3333" }
 durable_objects.bindings = []
 kv_namespaces = []
 r2_buckets = []
