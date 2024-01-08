@@ -1,24 +1,24 @@
 {
 	"files.exclude": {
-		".*": true,
-		"*.json": true,
+		".*": false,
+		"*.json": false,
 		"dist": true,
 		"README.md": true,
 		"LICENSE": true,
 		"CODEOWNERS": true,
-		"**/tsconfig.*": true,
+		"**/tsconfig.*": false,
 		"node_modules": true,
 		"*.code-workspace": true,
-		"*.config.js": true,
-		"*.toml": true,
-    "stencil.config.ts": true,
+		"*.config.js": false,
+		"*.toml": false,
+		"stencil.config.ts": false,
 	},
 	"editor.tabSize": 2,
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true,
-		"eslint.autoFixOnSave": true,
+		"source.fixAll.eslint": "explicit",
+		"eslint.autoFixOnSave": "explicit"
 	},
 	"eslint.format.enable": true,
 	"eslint.lintTask.enable": true,
@@ -38,5 +38,5 @@
 		"servly",
 		"uply"
 	],
-  "debug.javascript.autoAttachFilter": "disabled"
+	"debug.javascript.autoAttachFilter": "disabled"
 }

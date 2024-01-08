@@ -1,8 +1,8 @@
-compatibility_date = "2022-11-25"
+compatibility_date = "2023-10-25"
 name = "worker-template"
 workers_dev = true
 routes = []
-vars = { }
+vars = {}
 main = "./dist/_worker.js"
 port = 8787
 
@@ -12,7 +12,7 @@ upload.format = "modules"
 
 [env.production]
 workers_dev = false
-vars = {  }
+vars = {}
 durable_objects.bindings = []
 kv_namespaces = []
 r2_buckets = []
@@ -24,7 +24,6 @@ durable_objects.bindings = []
 kv_namespaces = []
 r2_buckets = []
 
-[miniflare]
-durable_objects_persist = "./.miniflare/durable-objects/"
-kv_persist = "./.miniflare/kv/"
+
+[dev]
 port = 8787

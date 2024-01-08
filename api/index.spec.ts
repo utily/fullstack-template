@@ -1,4 +1,4 @@
-import * as http from "cloudly-http"
+import { http } from "cloudly-http"
 describe("/", () => {
 	it("temporary", () => {
 		const response = http.Response.create("hello world")

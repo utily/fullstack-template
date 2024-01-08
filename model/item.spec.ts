@@ -1,4 +1,4 @@
-import * as model from "../model"
+import { model } from "../model"
 
 describe("item", () => {
 	it("is", () => {

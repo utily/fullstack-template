@@ -1,15 +1,14 @@
-import * as gracely from "gracely"
-import * as http from "cloudly-http"
-import * as rest from "cloudly-rest"
+import { gracely } from "gracely"
+import { http } from "cloudly-http"
 import { Version } from "./Version"
 
-export class Client extends rest.Client<gracely.Error> {
-	readonly version = new Version(this.client)
-	static create<T = Record<string, any>>(server: string, _?: string, load?: (client: http.Client) => T): Client & T {
-		let httpClient: http.Client<gracely.Error>
-		const result = new Client((httpClient = new http.Client<gracely.Error>(server, undefined, {})))
-		if (load)
-			Object.assign(result, load(httpClient))
-		return result as Client & T
+export class Client {
+	readonly version: Version
+	private constructor(private readonly client: http.Client) {
+		this.version = new Version(this.client)
+	}
+
+	static create(server: string, key: string): Client {
+		return new Client(new http.Client<gracely.Error>(server, key))
 	}
 }

@@ -1,4 +1,4 @@
-import * as cloudRouter from "cloudly-router"
-import { Context } from "./Context"
+import { Router } from "cloudly-router"
+import type { Context } from "./Context"
 
-export const router = new cloudRouter.Router<Context>()
+export const router = new Router<Context>()
