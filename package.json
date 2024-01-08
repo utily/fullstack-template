@@ -49,12 +49,12 @@
 		"test:watch": "watch jest",
 		"build": "npm run build:production",
 		"build:production": "(rollup --config rollup.config.js) & (stencil build)",
-		"build:api": "rollup --config rollup.config.js",
-		"build:local:api": "rollup --config rollup.dev.config.js",
+		"build:api": "NODE_ENV=production rollup -c",
+		"build:local:api": "NODE_ENV=development rollup -c",
 		"build:ui": "export NODE_ENV='local' && stencil build",
 		"start": "(npm run start:api) & (npm run start:ui) && kill $!",
-		"start:api": "(rollup --config rollup.dev.config.js --watch) & (node --experimental-vm-modules --inspect ./node_modules/miniflare/dist/src/cli.js dist/_worker.mjs --wrangler-env local --watch --live-reload -B 'while [ ! -f dist/_worker.mjs ]; do sleep 0.1; done' && kill $!)",
-		"start:ui": "stencil build --dev --serve --watch",
+		"start:api": "NODE_ENV=development && (rollup -c --watch) & (while [ ! -f dist/_worker.js ]; do sleep 0.1; done && wrangler dev --live-reload --env local --inspector-port 9229 ; kill $!)",
+		"start:ui": "export NODE_ENV='local' && stencil build --dev --serve --watch",
 		"kill": "(ps -aux | grep rollup | grep watch | awk '{print $2}' | xargs kill $1) & (lsof -i tcp:8787 | grep 8787 | awk '{print $2}' | xargs kill $1) & (lsof -i tcp:3333 | grep 3333 | awk '{print $2}' | xargs kill $1)"
 	},
 	"overrides": {
@@ -87,7 +87,7 @@
 		"typescript": "5.3.3"
 	},
 	"dependencies": {
-		"smoothly": "^0.3.60",
+		"smoothly": "^1.0.0-alpha.128",
 		"authly": "3.0.11",
 		"cloudly-http": "0.2.0-alpha.17",
 		"cloudly-router": "0.2.0-alpha.17",

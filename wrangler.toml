@@ -4,11 +4,9 @@ workers_dev = true
 routes = []
 vars = {}
 main = "./dist/_worker.js"
-port = 8787
 
 [build]
 command = "npm install && npm run build:api"
-upload.format = "modules"
 
 [env.production]
 workers_dev = false
@@ -19,11 +17,12 @@ r2_buckets = []
 
 [env.local]
 workers_dev = true
+routes = []
 vars = { adminSecret = "adminSecret", ui = "localhost:3333" }
 durable_objects.bindings = []
 kv_namespaces = []
 r2_buckets = []
 
-
 [dev]
+host = "example.com"
 port = 8787
