@@ -1,9 +1,9 @@
 {
 	"compilerOptions": {
-		"module": "es2015",
-		"target": "es2019",
+		"module": "ESNEXT",
+		"target": "ESNEXT",
 		"lib": [
-			"es2019"
+			"ESNEXT"
 		],
 		"types": [
 			"@cloudflare/workers-types",
