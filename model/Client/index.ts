@@ -7,8 +7,13 @@ export class Client {
 	private constructor(private readonly client: http.Client) {
 		this.version = new Version(this.client)
 	}
+	async characters() {
+		return this.client.get("/api/character")
+	}
 
 	static create(server: string, key: string): Client {
-		return new Client(new http.Client<gracely.Error>(server, key))
+		const client = new http.Client<gracely.Error>(server, key)
+		client.authorization = { bearer: "a" }
+		return new Client(client)
 	}
 }

@@ -14,3 +14,14 @@ export async function list(request: http.Request, _: Context): Promise<http.Resp
 	return result
 }
 router.add("GET", "/api/item", list)
+
+// const items = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
+// function getItems(): ReadableStream<Uint8Array> {
+// 	return new ReadableStream({
+// 		start(controller) {
+// 			for (const item of items) {
+// 				controller.enqueue(item)
+// 			}
+// 		},
+// 	})
+// }

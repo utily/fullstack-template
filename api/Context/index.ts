@@ -30,3 +30,8 @@ export class Context {
 		return result
 	}
 }
+export namespace Context {
+	export async function sleep(duration?: number): Promise<void> {
+		await new Promise(resolve => setTimeout(resolve, duration ?? 1000))
+	}
+}
