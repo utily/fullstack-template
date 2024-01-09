@@ -4,9 +4,9 @@ import { terser } from "rollup-plugin-terser"
 // for more details.
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
-import typescript from "@rollup/plugin-typescript"
+import typescript from "rollup-plugin-typescript2"
 import json from "@rollup/plugin-json"
-import path from "path"
+const nodeEnvironment = process.env.NODE_ENV
 
 export default [{
 		input: "api/index.ts",
@@ -15,9 +15,10 @@ export default [{
 			format: "es",
 			file: "dist/_worker.js",
 			sourcemap: true,
-			sourcemapPathTransform: (relativeSourcePath, _) => path.resolve(__dirname, relativeSourcePath.replace(/^(..\/)+/, "")),
+			sourcemapPathTransform: relativeSourcePath => 
+			relativeSourcePath.replace(/^(\.\.\/)(?=node_modules)/, "../").replace(/^(\.\.\/)+(?!node_modules)/, "../"),
 		},
-		plugins: [commonjs(), nodeResolve({ browser: true }), terser(), typescript({ tsconfig: "./api/tsconfig.json" }), json()],
+		plugins: [commonjs(), nodeResolve({ browser: true }), typescript({ tsconfig: "./api/tsconfig.json" }), json(), ...(!nodeEnvironment || nodeEnvironment == "production" ? [terser()] : [])],
 		watch: {
 			clearScreen: false,
 		},

@@ -1,18 +1,13 @@
 {
 	"configurations": [
-    {
-      "name": "Miniflare (attach)",
-      "type": "node",
-      "request": "attach",
-      "port": 9229
-    },
 		{
-			"name": "Miniflare (launch, api only)",
+			"name": "Wrangler (attatch)",
 			"type": "node",
-			"request": "launch",
-			"runtimeExecutable": "npm",
-			"runtimeArgs": ["run", "start:api"], 
-			"skipFiles": ["<node_internals>/**"]
+			"request": "attach",
+			"port": 9229,
+			"cwd": "/",
+			"attachExistingChildren": false,
+			"autoAttachChildProcesses": false
 		}
 	],
 }

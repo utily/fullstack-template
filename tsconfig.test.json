@@ -1,12 +1,14 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "target": "es2019",
-    "module": "es2015",
-    "sourceMap": true,
-    "experimentalDecorators": true,
-    "esModuleInterop": true,
-		"lib": ["es2019", "webworker"],
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"target": "es2019",
+		"module": "es2015",
+		"sourceMap": true,
+		"experimentalDecorators": true,
+		"esModuleInterop": true,
+		"lib": [
+			"es2019"
+		],
 		"noImplicitAny": true,
 		"removeComments": true,
 		"preserveConstEnums": true,
@@ -18,10 +20,16 @@
 		"alwaysStrict": true,
 		"strict": true,
 		"allowJs": true,
-    "types": ["@cloudflare/workers-types","node","jest"]
+		"types": [
+			"@cloudflare/workers-types",
+			"node",
+			"jest"
+		]
 	},
 	"typeAcquisition": {
 		"enable": true
 	},
-	"include": ["**/*.ts"]
+	"include": [
+		"**/*.ts"
+	]
 }
