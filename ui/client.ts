@@ -1,6 +1,6 @@
 import { model } from "../model"
 
-export const client = model.Client.create(
-	window.location.origin.includes("localhost") ? "http://localhost:8787" : window.location.origin,
-	""
-)
+const url = new URL(window.location.origin)
+if (url.port)
+	url.port = "8787"
+export const client = model.Client.create(url.origin, "")
