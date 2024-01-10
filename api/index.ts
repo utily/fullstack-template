@@ -7,6 +7,6 @@ import "./item"
 
 export default {
 	async fetch(request: Request, environment: Environment) {
-		return await Context.handle(request, environment)
+		return Context.handle(request, environment)
 	},
 }

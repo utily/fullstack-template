@@ -10,28 +10,39 @@ import { client } from "../../client"
 export class ApiVersion {
 	@State() version?: string
 	b: http.Request
+	@State() values: any[] = []
 
 	async connectedCallback() {
 		const response = await client.version.fetch()
 		this.version = response.version
 	}
 	async componentWillLoad() {
-		//const a = await client.characters()
-		const a = await http.fetch({ url: "http://localhost:8787/api/character", header: { authorization: "a" } })
-		http.Middleware
+		http.fetch({ url: "http://localhost:8787/api/character", header: { authorization: "a" } }).then(async r => {
+			console.log("body: ", r.body)
+		})
 		// fetch(new Request("http://localhost:8787/api/character", { method: "GET", headers: { authorization: "a" } })).then(
-		// 	r =>
-		// 		r.body?.pipeThrough(
-		// 			new TransformStream({
-		// 				transform(chunk: any, _: TransformStreamDefaultController) {
-		// 					console.log("chunk: ", chunk)
-		// 				},
-		// 			})
-		// 		)
+		// 	async r => {
+		// 		const reader = r.body?.getReader()
+		// 		if (!reader)
+		// 			console.log("problem!!")
+		// 		else {
+		// 			let read: ReadableStreamReadResult<Uint8Array>
+		// 			while (!(read = await reader.read()).done) {
+		// 				console.log("read: ", read.value)
+		// 				this.values = this.values.concat(read.value)
+		// 			}
+		// 		}
+		// 	}
 		// )
-		console.log("a: ", await a.body)
 	}
 	render() {
-		return <Host>{this.version ? `api version: ${this.version}` : "loading..."}</Host>
+		return (
+			<Host>
+				<div>
+					{this.version ? `api version: ${this.version}` : "loading..."}
+					{this.values.toString()}
+				</div>
+			</Host>
+		)
 	}
 }
