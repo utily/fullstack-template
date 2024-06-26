@@ -1,6 +1,6 @@
 {
 	"name": "@utily/worker-template",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "TypeScript template for stencil and Cloudflare workers.",
 	"private": true,
 	"repository": "https://github.com/worker-stencil-template/app/",
