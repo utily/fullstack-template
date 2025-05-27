@@ -1,21 +1,22 @@
 {
 	"files.exclude": {
 		".*": true,
-		"*.json": true,
+		"*.json": false,
 		"dist": true,
 		"README.md": true,
 		"LICENSE": true,
 		"CODEOWNERS": true,
-		"**/tsconfig.*": true,
+		"**/tsconfig.*": false,
 		"node_modules": true,
 		"*.code-workspace": true,
 		"*.config.js": true,
 		"*.toml": false,
-		"stencil.config.ts": true,
+		"stencil.config.ts": false,
 	},
 	"editor.tabSize": 2,
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
+	"json.format.keepLines": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": "explicit",
 		"eslint.autoFixOnSave": "explicit"

@@ -16,8 +16,6 @@ export const config: Config = {
 			dir: "dist/",
 		},
 	],
-	devServer: {
-		openBrowser: false,
-	},
+	devServer: { openBrowser: false },
 	plugins: [],
 }

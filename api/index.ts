@@ -1,11 +1,11 @@
+import { router } from "router"
 import { Context } from "./Context"
-import { Environment } from "./Context/Environment"
 
 import "./version"
 import "./item"
 
 export default {
 	async fetch(request: Request, environment: Environment) {
-		return await Context.handle(request, environment)
+		return router.handle(request, new Context(environment))
 	},
 }

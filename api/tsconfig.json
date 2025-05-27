@@ -1,36 +1,50 @@
 {
 	"compilerOptions": {
-		"module": "ESNEXT",
-		"target": "ESNEXT",
+		// https://www.totaltypescript.com/tsconfig-cheat-sheet
+		/* transpiling */
+		"outDir": "./dist",
+		"module": "ESNext",
+		"target": "ESNext",
 		"lib": [
-			"ESNEXT"
+			"ESNext"
 		],
-		"types": [
-			"@cloudflare/workers-types",
-			"node"
-		],
-		"forceConsistentCasingInFileNames": true,
-		"resolveJsonModule": true,
-		"allowJs": true,
-		"strict": true,
 		"alwaysStrict": true,
+		"strict": true,
 		"preserveConstEnums": true,
-		"moduleResolution": "node",
+		"moduleResolution": "node10",
 		"sourceMap": true,
+		"declaration": true,
+		/* base options */
 		"esModuleInterop": true,
+		"types": [
+			"./Cloudflare.d.ts",
+			"vitest/globals"
+		],
+		"skipLibCheck": true,
+		"resolveJsonModule": true,
+		/* strictness */
 		"noImplicitAny": true,
+		"noImplicitOverride": true,
+		"noUncheckedIndexedAccess": true,
+		/* other */
+		// where types are omitted. point package.json `exports` (import and require) / `types` field to these
+		"declarationDir": "./dist/types",
+		"allowSyntheticDefaultImports": true,
 		"removeComments": true,
+		"forceConsistentCasingInFileNames": true,
+		"baseUrl": ".",
 		"noImplicitThis": true,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
 		"strictNullChecks": true,
+		"allowJs": true,
+		"isolatedModules": true
 	},
 	"include": [
-		"./**/*.ts"
+		"*.ts",
+		"**/*.ts",
+		"../model/**/*.spec.ts",
+		"./Cloudflare.d.ts",
 	],
-	"exclude": [
-		"**/*.spec.ts",
-		"**/*.test.ts",
-		"**/*.d.ts"
-	]
+	"typeAcquisition": {
+		"enable": true
+	}
 }

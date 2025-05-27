@@ -1,0 +1,31 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "worker-fullstack",
+	"main": "./api/index.ts",
+	"compatibility_date": "2025-03-10",
+	"minify": true,
+	"tsconfig": "./api/tsconfig.json",
+	"upload_source_maps": true,
+	"workers_dev": true,
+	"observability": { "enabled": true, "head_sampling_rate": 1 },
+	"build": { "command": "npm run transpile" },
+	"dev": { "host": "example.com", "port": 8787 },
+	"vars": { },
+	"env": {
+		"local": {
+			"kv_namespaces": [ ],
+			"r2_buckets": [ ],
+			"routes": [ ],
+			"workers_dev": true,
+			"durable_objects": { "bindings": [ ] },
+			"vars": { "adminSecret": "adminSecret", "ui": "localhost:3333" }
+		},
+		"production": {
+			"kv_namespaces": [ ],
+			"r2_buckets": [ ],
+			"workers_dev": false,
+			"durable_objects": { "bindings": [ ] },
+			"vars": { }
+		}
+	}
+}
