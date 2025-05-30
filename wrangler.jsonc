@@ -10,6 +10,7 @@
 	"observability": { "enabled": true, "head_sampling_rate": 1 },
 	"build": { "command": "npm run transpile" },
 	"dev": { "host": "example.com", "port": 8787 },
+	"assets": { "binding": "assets", "directory": "./dist" }, // using dist for both worker and ui might leak the worker script.
 	"vars": { },
 	"env": {
 		"local": {
